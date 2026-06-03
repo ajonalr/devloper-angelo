@@ -1,0 +1,39 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-global
+    ports:
+      - 33061:3306
+    environment:
+      - TZ=America/Guatemala
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    networks:
+      - red-global
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    ports:
+      - 8089:80
+    environment:
+      - TZ=America/Guatemala
+      - PMA_HOST=mysql
+      - UPLOAD_LIMIT=2054M
+    depends_on:
+      - mysql
+    networks:
+      - red-global
+    restart: always
+
+networks:
+  red-global:
+    external: true    
+
+volumes:
+  mysql_data:
