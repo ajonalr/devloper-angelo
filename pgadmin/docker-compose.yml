@@ -11,8 +11,8 @@ services:
       - 5433:5432 # Cambié el puerto externo a 5433 por si tienes un Postgres nativo en la Dell
     environment:
       POSTGRES_DB: admin
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: jonas123
+      POSTGRES_USER: angelo
+      POSTGRES_PASSWORD: angelo123
     networks:
       - red-global
 
@@ -23,8 +23,8 @@ services:
       - pg_db
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: ariel12jona@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: jonas123
+      PGADMIN_DEFAULT_EMAIL: angelorl305@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: angelo123
       PGADMIN_LISTEN_PORT: 5052
     volumes:
       - ./pgadmin:/var/lib/pgadmin
