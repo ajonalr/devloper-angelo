@@ -3,6 +3,7 @@ import PocketBase from 'pocketbase';
 
 @Injectable()
 export class PocketbaseService {
+  // TODO: Pasar a variables de entotno (.env)
   public pb = new PocketBase('http://localhost:8090');
 
   constructor() {
